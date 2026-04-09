@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModaExpress Admin | Gestão de E-commerce de Luxo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+<div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-box">M</div>
+            <span style="font-weight: 800; font-size: 18px; letter-spacing: -0.04em;">ModaExpress</span>
+        </div>
+        
+        <nav class="nav-section">
+            <div class="nav-label">Operações</div>
+            <a data-nav="dashboard" class="nav-item active">
+                <span class="nav-icon">📊</span> Painel Geral
+            </a>
+            <a data-nav="orders" class="nav-item">
+                <span class="nav-icon">📦</span> Pedidos
+                <span style="margin-left: auto; background: var(--accent); color: var(--primary); font-size: 9px; padding: 2px 6px; border-radius: 10px; font-weight: 800;">12</span>
+            </a>
+            <a data-nav="products" class="nav-item">
+                <span class="nav-icon">👕</span> Catálogo
+            </a>
+            <a data-nav="customers" class="nav-item">
+                <span class="nav-icon">👥</span> Clientes
+            </a>
+        </nav>
+
+        <nav class="nav-section" style="padding-top: 0;">
+            <div class="nav-label">Relatórios</div>
+            <a data-nav="analytics" class="nav-item">
+                <span class="nav-icon">📈</span> Performance
+            </a>
+            <a data-nav="inventory" class="nav-item">
+                <span class="nav-icon">🏭</span> Estoque
+            </a>
+        </nav>
+
+        <nav class="nav-section" style="padding-top: 0;">
+            <div class="nav-label">Configurações</div>
+            <a data-nav="settings" class="nav-item">
+                <span class="nav-icon">⚙️</span> Loja & API
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="avatar-sm">AD</div>
+            <div style="flex: 1">
+                <div style="font-weight: 700; font-size: 12px;">Admin Master</div>
+                <div style="font-size: 10px; color: rgba(255,255,255,0.4);">Plano Enterprise</div>
+            </div>
+            <span style="opacity: 0.5; cursor: pointer; font-size: 14px;">🚪</span>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Topbar -->
+        <header class="topbar">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="color: var(--muted); font-size: 12px;">Workspace</span>
+                <span style="color: var(--border-strong);">/</span>
+                <span id="breadcrumb-active" style="font-weight: 700; color: var(--primary);">Painel Geral</span>
+            </div>
+
+            <div class="search-bar">
+                <span class="icon">🔍</span>
+                <input type="text" placeholder="Buscar por SKU, Cliente ou ID do Pedido...">
+                <span style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-size: 10px; background: white; border: 1px solid var(--border); padding: 2px 6px; border-radius: 4px; color: var(--muted); font-weight: 700;">⌘K</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 24px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <div style="width: 8px; height: 8px; background: var(--success); border-radius: 50%;"></div>
+                    <span style="font-size: 11px; font-weight: 700; color: var(--muted);">SISTEMA ONLINE</span>
+                </div>
+                <div style="position: relative; cursor: pointer; font-size: 18px;">
+                    🔔
+                    <div style="position: absolute; top: -2px; right: -2px; width: 10px; height: 10px; background: var(--error); border-radius: 50%; border: 2px solid white;"></div>
+                </div>
+            </div>
+        </header>
+
+        <div class="view-wrapper">
+            
+            <!-- VIEW: DASHBOARD -->
+            <div data-view="dashboard">
+                <div class="view-header">
+                    <div>
+                        <h1>Visão Geral do Negócio</h1>
+                        <p>Métricas consolidadas de vendas e engajamento em tempo real.</p>
+                    </div>
+                    <div style="display: flex; gap: 12px;">
+                        <button class="btn btn-secondary">📅 Últimos 7 dias</button>
+                        <button class="btn btn-primary">📊 Gerar PDF</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-label">Receita Bruta</span>
+                        <div class="stat-value">R$ 142.8k <span class="stat-change change-up">↑ 14%</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Pedidos</span>
+                        <div class="stat-value">1,842 <span class="stat-change change-up">↑ 8%</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Ticket Médio</span>
+                        <div class="stat-value">R$ 284 <span class="stat-change change-down">↓ 2%</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Conv. Rate</span>
+                        <div class="stat-value">3.42% <span class="stat-change change-up">↑ 0.5%</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Novos Clientes</span>
+                        <div class="stat-value">412 <span class="stat-change change-up">↑ 22%</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Carrinhos Aband.</span>
+                        <div class="stat-value">84 <span class="stat-change change-down">↓ 12%</span></div>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px; margin-bottom: 32px;">
+                    <div class="chart-container">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 24px;">
+                            <h3 style="font-size: 15px; font-weight: 700;">Volume de Vendas Diário</h3>
+                            <div style="display: flex; gap: 8px;">
+                                <span style="display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; color: var(--muted);">
+                                    <span style="width: 8px; height: 8px; background: var(--primary); border-radius: 2px;"></span> Vendas Reais
+                                </span>
+                            </div>
+                        </div>
+                        <div class="bar-chart-flex">
+                            <div class="bar-wrapper"><div class="bar-fill" style="height: 40%;" data-value="R$ 12k"></div><span class="bar-axis-label">Seg</span></div>
+                            <div class="bar-wrapper"><div class="bar-fill" style="height: 65%;" data-value="R$ 18k"></div><span class="bar-axis-label">Ter</span></div>
+                            <div class="bar-wrapper"><div class="bar-fill" style="height: 55%;" data-value="R$ 15k"></div><span class="bar-axis-label">Qua</span></div>
+                            <div class="bar-wrapper"><div class="bar-fill" style="height: 85%;" data-value="R$ 24k"></div><span class="bar-axis-label">Qui</span></div>
+                            <div class="bar-wrapper"><div class="bar-fill" style="height: 95%;" data-value="R$ 28k"></div><span class="bar-axis-label">Sex</span></div>
+                            <div class="bar-wrapper"><div class="bar-fill" style="height: 70%;" data-value="R$ 20k"></div><span class="bar-axis-label">Sáb</span></div>
+                            <div class="bar-wrapper"><div class="bar-fill" style="height: 50%;" data-value="R$ 14k"></div><span class="bar-axis-label">Dom</span></div>
+                        </div>
+                    </div>
+
+                    <div class="data-card">
+                        <div style="padding: 20px; border-bottom: 1px solid var(--border);">
+                            <h3 style="font-size: 15px; font-weight: 700;">Top Produtos</h3>
+                        </div>
+                        <div style="padding: 12px;">
+                            <div style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 8px; transition: var(--transition); cursor: pointer;">
+                                <div style="width: 40px; height: 40px; background: #f1f5f9; border-radius: 6px;"></div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 700; font-size: 13px;">Vestido Midi Seda</div>
+                                    <div style="font-size: 11px; color: var(--muted);">142 vendas este mês</div>
+                                </div>
+                                <div style="font-weight: 700; color: var(--success);">+ R$ 42k</div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 8px;">
+                                <div style="width: 40px; height: 40px; background: #f1f5f9; border-radius: 6px;"></div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 700; font-size: 13px;">Blazer Slim Fit</div>
+                                    <div style="font-size: 11px; color: var(--muted);">98 vendas este mês</div>
+                                </div>
+                                <div style="font-weight: 700; color: var(--success);">+ R$ 31k</div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 8px;">
+                                <div style="width: 40px; height: 40px; background: #f1f5f9; border-radius: 6px;"></div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 700; font-size: 13px;">Mocassim Couro</div>
+                                    <div style="font-size: 11px; color: var(--muted);">76 vendas este mês</div>
+                                </div>
+                                <div style="font-weight: 700; color: var(--success);">+ R$ 18k</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <div style="padding: 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-size: 15px; font-weight: 700;">Pedidos Recentes</h3>
+                        <button class="btn btn-secondary" style="height: 32px; font-size: 11px;">Ver Todos</button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID Pedido</th>
+                                <th>Cliente</th>
+                                <th>Data/Hora</th>
+                                <th>Canal</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dashboard-orders-list">
+                            <!-- JS Rendered -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- VIEW: ORDERS -->
+            <div data-view="orders" class="hidden">
+                <div class="view-header">
+                    <div>
+                        <h1>Gestão de Pedidos</h1>
+                        <p>Acompanhe o fluxo completo desde o pagamento até a entrega final.</p>
+                    </div>
+                    <div style="display: flex; gap: 12px;">
+                        <button class="btn btn-secondary">📥 Exportar CSV</button>
+                        <button class="btn btn-primary">+ Novo Pedido Manual</button>
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <div style="padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; gap: 16px; background: #fcfcfd;">
+                        <input type="text" class="form-control" placeholder="Filtrar por nome ou ID..." style="max-width: 300px; height: 36px;">
+                        <select class="form-control" style="max-width: 160px; height: 36px;">
+                            <option>Todos Status</option>
+                            <option>Pendente</option>
+                            <option>Pago</option>
+                            <option>Enviado</option>
+                        </select>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>Pedido</th>
+                                <th>Cliente</th>
+                                <th>Data</th>
+                                <th>Pagamento</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="full-orders-list">
+                            <!-- JS Rendered -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- VIEW: PRODUCTS -->
+            <div data-view="products" class="hidden">
+                <div class="view-header">
+                    <div>
+                        <h1>Catálogo de Produtos</h1>
+                        <p>Gerencie SKUs, níveis de estoque e precificação dinâmica.</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="switchView('product-form')">+ Adicionar Produto</button>
+                </div>
+
+                <div class="data-card">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>SKU</th>
+                                <th>Produto</th>
+                                <th>Categoria</th>
+                                <th>Preço</th>
+                                <th>Estoque</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="full-products-list">
+                            <!-- JS Rendered -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- VIEW: PRODUCT FORM -->
+            <div data-view="product-form" class="hidden">
+                <div class="view-header">
+                    <div>
+                        <h1>Novo Produto</h1>
+                        <p>Cadastre um novo item no catálogo ModaExpress.</p>
+                    </div>
+                    <div style="display: flex; gap: 12px;">
+                        <button class="btn btn-secondary" onclick="switchView('products')">Descartar</button>
+                        <button class="btn btn-primary">Publicar Produto</button>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+                    <div class="data-card" style="padding: 32px;">
+                        <div class="form-group">
+                            <label class="form-label">Título do Produto</label>
+                            <input type="text" class="form-control" placeholder="Ex: Camisa Linho Premium Branca">
+                            <p class="help-text">O título deve ser claro e incluir a cor principal.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Descrição Detalhada</label>
+                            <textarea class="form-control" style="height: 150px; padding: 12px; resize: none;" placeholder="Descreva o material, caimento e instruções de lavagem..."></textarea>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">Preço de Venda (R$)</label>
+                                <input type="number" class="form-control" placeholder="0,00">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Preço de Custo (R$)</label>
+                                <input type="number" class="form-control" placeholder="0,00">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 24px;">
+                        <div class="data-card" style="padding: 24px;">
+                            <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 16px;">Organização</h3>
+                            <div class="form-group">
+                                <label class="form-label">Categoria</label>
+                                <select class="form-control">
+                                    <option>Vestuário</option>
+                                    <option>Calçados</option>
+                                    <option>Acessórios</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Status de Visibilidade</label>
+                                <select class="form-control">
+                                    <option>Ativo (Visível na Loja)</option>
+                                    <option>Rascunho</option>
+                                    <option>Arquivado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="data-card" style="padding: 24px; border: 2px dashed var(--border); background: #fcfcfd; text-align: center;">
+                            <div style="font-size: 24px; margin-bottom: 12px;">🖼️</div>
+                            <div style="font-weight: 700; font-size: 13px;">Upload de Mídia</div>
+                            <p style="font-size: 11px; color: var(--muted); margin-top: 4px;">Arraste até 5 imagens de alta resolução.</p>
+                            <button class="btn btn-secondary" style="margin-top: 16px; width: 100%;">Selecionar Arquivos</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW: SETTINGS -->
+            <div data-view="settings" class="hidden">
+                <div class="view-header">
+                    <div>
+                        <h1>Configurações do Sistema</h1>
+                        <p>Gerencie as preferências globais da sua instância ModaExpress.</p>
+                    </div>
+                </div>
+
+                <div class="tabs-nav">
+                    <div class="tab-btn active" data-tab="general">Geral</div>
+                    <div class="tab-btn" data-tab="payments">Pagamentos & Checkout</div>
+                    <div class="tab-btn" data-tab="api">API & Webhooks</div>
+                    <div class="tab-btn" data-tab="team">Equipe</div>
+                </div>
+
+                <div id="tab-general" class="tab-content">
+                    <div class="data-card" style="padding: 32px; max-width: 800px;">
+                        <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 24px;">Informações da Loja</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">Nome Público</label>
+                                <input type="text" class="form-control" value="ModaExpress Brasil">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">E-mail de Suporte</label>
+                                <input type="email" class="form-control" value="sac@modaexpress.com.br">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Moeda Padrão</label>
+                                <select class="form-control">
+                                    <option>Real Brasileiro (BRL)</option>
+                                    <option>Dólar Americano (USD)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Fuso Horário</label>
+                                <select class="form-control">
+                                    <option>(GMT-03:00) São Paulo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end;">
+                            <button class="btn btn-primary">Salvar Alterações</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-api" class="tab-content hidden">
+                    <div class="data-card" style="padding: 32px; max-width: 800px;">
+                        <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Chaves de API</h3>
+                        <p style="color: var(--muted); margin-bottom: 24px;">Use estas chaves para integrar com sistemas externos de ERP ou Logística.</p>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Public Key (PK)</label>
+                            <div style="display: flex; gap: 8px;">
+                                <input type="text" class="form-control text-mono" value="pk_live_51Mz9X2Lp9WqR8z2X" readonly>
+                                <button class="btn btn-secondary">Copiar</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Secret Key (SK)</label>
+                            <div style="display: flex; gap: 8px;">
+                                <input type="password" class="form-control text-mono" value="sk_live_••••••••••••••••" readonly>
+                                <button class="btn btn-secondary">Revelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+
+
+</body>
+</html>
